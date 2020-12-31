@@ -5,7 +5,7 @@ class ComputingStatistics
   end
 
   def numbers
-    number_string = "Numbers: "
+    number_string = ""
     @numbers.each do |number|
       number_string += "#{number}, "
     end
@@ -20,10 +20,18 @@ class ComputingStatistics
     average = total.to_f / @numbers.length
     average = average.to_s
     if average.end_with?(".0")
-      "The average is #{average[0...-2]}"
+      average[0...-2].to_i
     else
-      "The average is #{average}"
+      average.to_f
     end
+  end
+
+  def minimum
+    @numbers.min
+  end
+
+  def maximum
+    @numbers.max
   end
 
 end

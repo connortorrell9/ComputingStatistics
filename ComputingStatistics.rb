@@ -15,7 +15,7 @@ class ComputingStatistics
   def numbers
     number_string = ""
     @numbers.each do |number|
-      number_string += "#{number}, "
+      number_string += "#{clean_number_end(number)}, "
     end
     number_string[0...-2]
   end
@@ -30,11 +30,11 @@ class ComputingStatistics
   end
 
   def minimum
-    @numbers.min
+    clean_number_end(@numbers.min)
   end
 
   def maximum
-    @numbers.max
+    clean_number_end(@numbers.max)
   end
 
   def standard_deviation

@@ -49,4 +49,18 @@ describe "computing statistics" do
       expect(computing_statistics.new([107.5, 356.9, 95.2]).maximum).to eq(356.9)
     end
   end
+  context "returns standard deviation" do
+    it "with 1 number" do
+      expect(computing_statistics.new([100]).standard_deviation).to eq(0)
+    end
+    it "with 2 numbers" do
+      expect(computing_statistics.new([100, 200]).standard_deviation).to eq(50)
+    end
+    it "with numbers out of order" do
+      expect(computing_statistics.new([107, 356, 95]).standard_deviation).to eq(120.30793822520607)
+    end
+    it "with decimal numbers out of order" do
+      expect(computing_statistics.new([107.5, 356.9, 95.2]).standard_deviation).to eq(120.57203471599686)
+    end
+  end
 end
